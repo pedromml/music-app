@@ -1,0 +1,49 @@
+.App-logo {
+  height: 100px;
+  margin-right: auto;
+}
+
+.header-profile-picture {
+  margin-right: auto;
+
+  img {
+    height: 100px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 0px 20px;
+}
+
+.nav-item {
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: rgb(72, 72, 100);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.nav-item:hover {
+  border-radius: 10px;
+  background-color: rgb(106, 106, 108);
+}

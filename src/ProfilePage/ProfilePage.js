@@ -1,29 +1,58 @@
-import { useRef } from "react";
+import { useReducer, useRef, useState } from "react";
 import "./ProfilePage.css";
 import songs from "../data/songs/songs.json";
 
 import user from "../data/users/user1.json";
 
+function calculateAge(birthDate) {
+  return Math.floor(
+    (Date.now() - Date.parse(birthDate)) / (1000 * 60 * 60 * 24 * 365.25))
+}
+
+const userDataReducer = (userData, action) => {
+switch (action.type) {
+  case 'updateUserName': {
+    return {...userData, fullName: action.name}
+  }
+  case 'updateUserBirthDate': {
+    return {...userData, birthDate: action.birthDate, age: calculateAge(action.birthDate)}
+  }
+  default: {
+    console.log('Unknown action')
+    console.log(action)
+  }
+}
+}
+
 const ProfilePage = () => {
+  user.age = calculateAge(user.birthDate)
+  const [userData, dispatch] = useReducer(userDataReducer, user);
+
+  function handleUpdateUserName(e) {
+    dispatch({
+      type: 'updateUserName',
+      name: e.target.value
+    })
+  }
+
+  function handleUpdateUserBirthDate(e) {
+    dispatch({
+      type: 'updateUserBirthDate',
+      birthDate: e.target.value
+    })
+  }
+
   const horizontalScrollRef = useRef();
   const onWheel = (e) => {
-    e.preventDefault();
-    try {const elm = horizontalScrollRef.current;
+    const elm = horizontalScrollRef.current;
     if (elm) {
-      if (e.deltaY == 0) return;
+      if (e.deltaY === 0) return;
       elm.scrollTo({
-        left: elm.scrollLeft + e.deltaY/2,
+        left: elm.scrollLeft + e.deltaY / 2,
       });
-      e.preventDefault();
-    }}
-    catch {
-      console.log("AAA")
     }
   };
 
-  const age = Math.floor(
-    (Date.now() - Date.parse(user.birthDate)) / (1000 * 60 * 60 * 24 * 365.25)
-  );
   const songList = songs.songs.map((song) => {
     return (
       <div className="song-picture-container" key={song.name}>
@@ -44,20 +73,26 @@ const ProfilePage = () => {
           src={require("../data/profile_photos/" + user.profile_picture)}
         />
         <div className="text-container">
-          <p className="profile-data-tag">Name:</p>
-          <input className="profile-text-data" value={user.fullName}/>
+          <p className="profile-data-tag">User name:</p>
+          <input className="profile-text-data" value={userData.fullName} onChange={e => handleUpdateUserName(e)}/>
 
           <p className="profile-data-tag">Age:</p>
-          <p className="profile-text-data">{age}</p>
+          <p className="profile-text-data">{userData.age}</p>
 
           <p className="profile-data-tag">Born at:</p>
-          <p className="profile-text-data">{user.birthDate}</p>
+          <input className="profile-text-data" type="date" value={userData.birthDate} onChange={e => handleUpdateUserBirthDate(e)}/>
         </div>
       </div>
       <div className="content-container content-container-flex-grow">
         <div className="picture-list-container">
           <p className="list-title">Liked songs</p>
-          <div className="picture-list-horizontal" ref={horizontalScrollRef} onWheel={onWheel}>{songList}</div>
+          <div
+            className="picture-list-horizontal"
+            ref={horizontalScrollRef}
+            onWheel={onWheel}
+          >
+            {songList}
+          </div>
         </div>
       </div>
     </div>

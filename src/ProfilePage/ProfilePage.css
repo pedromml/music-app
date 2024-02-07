@@ -18,10 +18,9 @@
   max-width: 100vw;
 }
 
-
 .content-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
   background-color: aliceblue;
   margin: 10px;
   border-radius: 30px;
@@ -31,127 +30,142 @@
 }
 
 .content-container-flex-grow {
-    flex-grow: 1;
-    margin-right: 0;
+  flex-grow: 1;
+  margin-right: 0;
 }
 
 .text-container {
-    margin-left: 30px;
-    margin-right: 50px;
+  margin-left: 30px;
+  margin-right: 50px;
 }
 
 .picture-list-container {
-    margin-left: 40px;
-    margin-right: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .profile-text-data {
-    width: 100%;
-    padding: 5px;
-    border-radius: 10px;
-    border: 1px solid gray;
-    font-size: medium;
-    &:hover {
-        border: 1px solid black;
-        background-color: rgb(240, 240, 240);
-    }
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: medium;
+  &:hover {
+    border: 1px solid black;
+    background-color: rgb(240, 240, 240);
+  }
 }
 
 .profile-data-tag {
-    font-size: 15px;
-    font-style: italic;
-    color: gray;
+  font-size: 15px;
+  font-style: italic;
+  color: gray;
 }
 
 .list-title {
 }
 
 .picture-list-horizontal {
-    display: flex;
-    gap: 5px;
-    flex: 1;
-    overflow-y: hidden;
-    overflow-x: auto;
-    max-width: calc(100vw - 600px);
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    border-radius: 10px;
+  display: flex;
+  gap: 5px;
+  flex: 1;
+  overflow-y: hidden;
+  overflow-x: auto;
+  max-width: calc(100vw - 600px);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  border-radius: 10px;
+  min-height: 250px;
 }
 
 .picture-list-horizontal::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .song-picture {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .song-picture-subtitle {
-    color: white;
-    position: absolute;
-    padding-top: calc(100% - 1.1rem);
-    padding-left: 10px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-image: linear-gradient(
+  color: white;
+  position: absolute;
+  padding-top: calc(100% - 1.1rem);
+  padding-left: 10px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(
     rgba(255, 0, 0, 0),
     rgba(255, 0, 0, 0),
     rgb(0, 0, 0)
   );
   opacity: 0.5;
   &:hover {
-      opacity: 1;
-    }
+    opacity: 1;
+  }
 }
 
+.song-picture-heart {
+  aspect-ratio: 1 / 1;
+  transition: 0.4s;
+  width: 20px;
+  filter: brightness(0) invert(1);
+  position: absolute;
+  margin: 10px;
+  bottom: 0;
+  right: 0;
+}
 
 @media (min-width: 901px) {
-    .song-picture-container {
-        position: relative;
-        min-width: 150px;
-        height: 150px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 3px;
-        transition: 0.4s;
-        &:hover {
-            min-width: 250px;
-            height: 250px;
-          }
+  .song-picture-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 3px;
+    transition: 0.4s;
+    &:hover {
+      width: 250px;
+      height: 250px;
+
+      .song-picture-heart {
+        width: 40px;
       }
+    }
+  }
 }
 
 @media (max-width: 900px) {
-    .content {
-        flex-direction: column;
-        padding: 0px;
-    }
+  .content {
+    flex-direction: column;
+    padding: 0px;
+  }
 
-    .content-container {
-        margin: 0;
-        border-radius: 0;
-        padding: 10px 0px;
-        box-shadow: none;
-    }
+  .content-container {
+    margin: 0;
+    border-radius: 0;
+    padding: 10px 0px;
+    box-shadow: none;
+  }
 
-    .picture-list-horizontal {
-        max-width: calc(100vw);
-        flex-wrap: wrap;
-        gap: 0px;
-    }
+  .picture-list-horizontal {
+    max-width: calc(100vw);
+    flex-wrap: wrap;
+    gap: 0px;
+  }
 
-    .picture-list-container {
-        margin: 0;
-    }
+  .picture-list-container {
+    margin: 0;
+  }
 
-    .song-picture-container {
-        position: relative;
-        aspect-ratio: 1 / 1;
-        width: 50%;
-      }
+  .song-picture-container {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 50%;
+  }
 
-      .list-title {
-        margin-left: 20px;
-        font-size: larger;
-    }
+  .list-title {
+    margin-left: 20px;
+    font-size: larger;
+  }
 }

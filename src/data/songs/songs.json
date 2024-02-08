@@ -1,14 +1,24 @@
 {
     "songs": [
-        {"songName":"musica1",
-        "songArtist": "artista1",
-        "album": "album1",
-        "albumCover": "album1.svg" 
+        {"songName":"Falling",
+        "songArtist": "Florence + The Machine",
+        "album": "Lungs",
+        "albumCover": "lungs.jpg" 
         },
-        {"songName":"musica2",
-        "songArtist": "artista2",
-        "album": "album2",
-        "albumCover": "album1.svg" 
+        {"songName":"All this and heaven too",
+        "songArtist": "Florence + The Machine",
+        "album": "Ceremonials",
+        "albumCover": "ceremonials.png" 
+        },
+        {"songName":"Hiding",
+        "songArtist": "Florence + The Machine",
+        "album": "How Big, How Blue, How Beautiful",
+        "albumCover": "how-big-how-blue-how-beautiful.jpg" 
+        },
+        {"songName":"No choir",
+        "songArtist": "Florence + The Machine",
+        "album": "High as Hope",
+        "albumCover": "high-as-hope.jpeg" 
         }
     ]
 }

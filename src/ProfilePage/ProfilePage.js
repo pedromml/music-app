@@ -4,6 +4,7 @@ import songs from "../data/songs/songs.json";
 
 import user from "../data/users/user1.json";
 import SongPictureContainer from "./SongPictureContainer";
+import PictureList from "./PictureList";
 
 function calculateAge(birthDate) {
   return Math.floor(
@@ -12,7 +13,6 @@ function calculateAge(birthDate) {
 }
 
 const userDataReducer = (userData, action) => {
-  console.log(action);
   switch (action.type) {
     case "updateUserName": {
       return { ...userData, fullName: action.name };
@@ -50,7 +50,6 @@ const userDataReducer = (userData, action) => {
 const ProfilePage = () => {
   user.age = calculateAge(user.birthDate);
   const [userData, dispatch] = useReducer(userDataReducer, user);
-  console.log(userData);
 
   function handleUpdateUserName(e) {
     dispatch({
@@ -66,19 +65,9 @@ const ProfilePage = () => {
     });
   }
 
-  const horizontalScrollRef = useRef();
-  const onWheel = (e) => {
-    const elm = horizontalScrollRef.current;
-    if (elm) {
-      if (e.deltaY === 0) return;
-      elm.scrollTo({
-        left: elm.scrollLeft + e.deltaY / 2,
-      });
-    }
-  };
+
 
   function handleAddSongToLiked(isLiked, song) {
-    console.log("isLiked" + isLiked);
     if (isLiked) {
       dispatch({
         type: "addLikedSong",
@@ -127,9 +116,6 @@ const ProfilePage = () => {
       );
     });
 
-  console.log("liked songs");
-  console.log(userData.likedSongs);
-
   return (
     <div className="content">
       <div className="content-container">
@@ -159,28 +145,10 @@ const ProfilePage = () => {
       </div>
       <div className="content-container content-container-flex-grow">
         {likedSongsList.length > 0 && (
-          <div className="picture-list-container">
-            <p className="list-title">Liked songs</p>
-            <div
-              className="picture-list-horizontal"
-              ref={horizontalScrollRef}
-              onWheel={onWheel}
-            >
-              {likedSongsList}
-            </div>
-          </div>
+          <PictureList title={"Liked songs"} songList={likedSongsList}/>
         )}
         {notLikedSongsList.length > 0 && (
-          <div className="picture-list-container">
-            <p className="list-title">Other songs</p>
-            <div
-              className="picture-list-horizontal"
-              ref={horizontalScrollRef}
-              onWheel={onWheel}
-            >
-              {notLikedSongsList}
-            </div>
-          </div>
+          <PictureList title={likedSongsList.length > 0 ? "Other songs" : "All songs"} songList={notLikedSongsList}/>
         )}
       </div>
     </div>

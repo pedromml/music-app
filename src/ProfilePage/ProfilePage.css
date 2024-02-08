@@ -19,6 +19,7 @@
 }
 
 .content-container {
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   background-color: aliceblue;
@@ -62,9 +63,6 @@
   color: gray;
 }
 
-.list-title {
-}
-
 .picture-list-horizontal {
   display: flex;
   gap: 5px;
@@ -74,7 +72,6 @@
   max-width: calc(100vw - 600px);
   -ms-overflow-style: none;
   scrollbar-width: none;
-  border-radius: 10px;
   min-height: 250px;
 }
 
@@ -92,6 +89,7 @@
   position: absolute;
   padding-top: calc(100% - 1.1rem);
   padding-left: 10px;
+  padding-right: 40px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -119,17 +117,22 @@
 
 @media (min-width: 901px) {
   .song-picture-container {
+    aspect-ratio: 1 / 1;
     position: relative;
-    width: 150px;
+    min-width: 150px;
     height: 150px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 3px;
     transition: 0.4s;
     &:hover {
-      width: 250px;
+      min-width: 250px;
       height: 250px;
 
       .song-picture-heart {
         width: 40px;
+      }
+
+      .song-picture-subtitle {
+        padding-right: 60px;
       }
     }
   }

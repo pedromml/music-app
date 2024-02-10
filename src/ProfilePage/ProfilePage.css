@@ -174,7 +174,12 @@
   .song-picture-container {
     animation: fadeIn 0.8s;
     position: relative;
+    aspect-ratio: 1 / 1 ;
     width: 50%;
+  }
+
+  .song-picture-subtitle {
+    opacity: 1;
   }
 
   .list-title {

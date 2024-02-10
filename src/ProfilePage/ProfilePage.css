@@ -174,7 +174,6 @@
   .song-picture-container {
     animation: fadeIn 0.8s;
     position: relative;
-    aspect-ratio: 1 / 1;
     width: 50%;
   }
 

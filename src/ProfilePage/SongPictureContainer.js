@@ -16,7 +16,7 @@ const SongPictureContainer = ({ song, handleAddSongToLiked, liked }) => {
         alt={song.album}
       />
       <div className="song-picture-subtitle">{song.songName}<span className={"song-picture-artist"}><br/>By {song.songArtist} </span></div>
-      <img className="song-picture-heart" src={heartFilled ? "icons/heart-filled.svg" : "icons/heart-empty.svg"}  alt="Like" ></img>
+      <img className="song-picture-heart" src={heartFilled ? process.env.PUBLIC_URL + "/icons/heart-filled.svg" : process.env.PUBLIC_URL + "/icons/heart-empty.svg"}  alt="Like" ></img>
     </div>
   );
 };

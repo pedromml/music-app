@@ -20,7 +20,10 @@ const PictureList = ({ title, songList, liked, handleAddSongToLiked }) => {
 
   const searchedSongList = songList.filter((song) => {
     if (searchedString === "") return true;
-    return song.songName.replace(/ /g,'').toUpperCase().includes(searchedString.replace(/ /g,'').toUpperCase());
+    return song.songName
+      .replace(/ /g, "")
+      .toUpperCase()
+      .includes(searchedString.replace(/ /g, "").toUpperCase());
   });
 
   return (

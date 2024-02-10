@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const SongPictureContainer = ({ song, handleAddSongToLiked, liked }) => {
 
@@ -13,9 +13,10 @@ const SongPictureContainer = ({ song, handleAddSongToLiked, liked }) => {
       <img
         className="song-picture"
         src={require("../data/songs/album_covers/" + song.albumCover)}
+        alt={song.album}
       />
-      <div className="song-picture-subtitle">{song.songName}</div>
-      <img className="song-picture-heart" src={heartFilled ? "icons/heart-filled.svg" : "icons/heart-empty.svg"}></img>
+      <div className="song-picture-subtitle">{song.songName}<span className={"song-picture-artist"}><br/>By {song.songArtist} </span></div>
+      <img className="song-picture-heart" src={heartFilled ? "icons/heart-filled.svg" : "icons/heart-empty.svg"}  alt="Like" ></img>
     </div>
   );
 };

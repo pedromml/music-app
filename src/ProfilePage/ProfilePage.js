@@ -1,10 +1,10 @@
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useReducer } from "react";
 import "./ProfilePage.css";
 import songs from "../data/songs/songs.json";
 
 import user from "../data/users/user1.json";
-import SongPictureContainer from "./SongPictureContainer";
 import PictureList from "./PictureList";
+import ProfileCard from "./ProfileCard";
 
 function calculateAge(birthDate) {
   return Math.floor(
@@ -65,8 +65,6 @@ const ProfilePage = () => {
     });
   }
 
-
-
   function handleAddSongToLiked(isLiked, song) {
     if (isLiked) {
       dispatch({
@@ -81,74 +79,34 @@ const ProfilePage = () => {
     }
   }
 
-  const songList = songs.songs.map((song) => {
-    return (
-      <SongPictureContainer
-        song={song}
-        handleAddSongToLiked={handleAddSongToLiked}
-      />
-    );
+  const notLikedSongsList = songs.songs.filter((s) => {
+    return !userData.likedSongs.includes(s);
   });
-  let likedSongsList = userData.likedSongs.map((song) => {
-    return (
-      <SongPictureContainer
-        key={song.songName}
-        song={song}
-        liked={true}
-        handleAddSongToLiked={handleAddSongToLiked}
-      />
-    );
-  });
-
-  let notLikedSongsList = songs.songs
-    .filter((s) => {
-      return !userData.likedSongs.includes(s);
-    })
-
-    .map((song) => {
-      return (
-        <SongPictureContainer
-          key={song.songName}
-          song={song}
-          liked={false}
-          handleAddSongToLiked={handleAddSongToLiked}
-        />
-      );
-    });
 
   return (
     <div className="content">
-      <div className="content-container">
-        <img
-          className="profile-picture"
-          src={require("../data/profile_photos/" + user.profile_picture)}
-        />
-        <div className="text-container">
-          <p className="profile-data-tag">User name:</p>
-          <input
-            className="profile-text-data"
-            value={userData.fullName}
-            onChange={(e) => handleUpdateUserName(e)}
-          />
-
-          <p className="profile-data-tag">Age:</p>
-          <p className="profile-text-data">{userData.age}</p>
-
-          <p className="profile-data-tag">Born at:</p>
-          <input
-            className="profile-text-data"
-            type="date"
-            value={userData.birthDate}
-            onChange={(e) => handleUpdateUserBirthDate(e)}
-          />
-        </div>
-      </div>
+      <ProfileCard
+        user={user}
+        userData={userData}
+        handleUpdateUserBirthDate={handleUpdateUserBirthDate}
+        handleUpdateUserName={handleUpdateUserName}
+      />
       <div className="content-container content-container-flex-grow">
-        {likedSongsList.length > 0 && (
-          <PictureList title={"Liked songs"} songList={likedSongsList}/>
+        {userData.likedSongs.length > 0 && (
+          <PictureList
+            title={"Liked songs"}
+            songList={userData.likedSongs}
+            liked={true}
+            handleAddSongToLiked={handleAddSongToLiked}
+          />
         )}
         {notLikedSongsList.length > 0 && (
-          <PictureList title={likedSongsList.length > 0 ? "Other songs" : "All songs"} songList={notLikedSongsList}/>
+          <PictureList
+            title={userData.likedSongs.length > 0 ? "Other songs" : "All songs"}
+            songList={notLikedSongsList}
+            liked={false}
+            handleAddSongToLiked={handleAddSongToLiked}
+          />
         )}
       </div>
     </div>

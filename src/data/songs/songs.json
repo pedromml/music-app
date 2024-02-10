@@ -20,5 +20,29 @@
         "album": "High as Hope",
         "albumCover": "high-as-hope.jpeg" 
         }
+        ,
+        {"songName":"I bet on losing dogs",
+        "songArtist": "Mitski",
+        "album": "Puberty 2",
+        "albumCover": "puberty-2.jpg" 
+        }
+        ,
+        {"songName":"Nobody",
+        "songArtist": "Mitski",
+        "album": "Be the cowboy",
+        "albumCover": "be-the-cowboy.jpg" 
+        }
+        ,
+        {"songName":"Class of 2013",
+        "songArtist": "Mitski",
+        "album": "Retired from sad, new career in business",
+        "albumCover": "retired-from-sad-new-career-in-business.jpg" 
+        }
+        ,
+        {"songName":"I don't like my mind",
+        "songArtist": "Mitski",
+        "album": "The land is inhospitable and so are we",
+        "albumCover": "the-land-is-inhospitable.png" 
+        }
     ]
 }

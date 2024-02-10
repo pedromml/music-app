@@ -1,11 +1,11 @@
 .profile-picture {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   border: 3px solid;
   border-color: black;
   background-color: white;
-  margin: 50px;
+  margin: 25px;
   align-self: center;
 }
 
@@ -19,7 +19,6 @@
 }
 
 .content-container {
-  min-height: 600px;
   display: flex;
   flex-direction: column;
   background-color: aliceblue;
@@ -72,7 +71,7 @@
   max-width: calc(100vw - 600px);
   -ms-overflow-style: none;
   scrollbar-width: none;
-  min-height: 250px;
+  min-height: 200px;
 }
 
 .picture-list-horizontal::-webkit-scrollbar {
@@ -104,6 +103,11 @@
   }
 }
 
+.song-picture-artist {
+  display: none;
+  font-size: small;
+}
+
 .song-picture-heart {
   aspect-ratio: 1 / 1;
   transition: 0.4s;
@@ -117,6 +121,7 @@
 
 @media (min-width: 901px) {
   .song-picture-container {
+    animation: fadeIn 0.8s;
     aspect-ratio: 1 / 1;
     position: relative;
     min-width: 150px;
@@ -124,8 +129,8 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 3px;
     transition: 0.4s;
     &:hover {
-      min-width: 250px;
-      height: 250px;
+      min-width: 200px;
+      height: 200px;
 
       .song-picture-heart {
         width: 40px;
@@ -133,6 +138,11 @@
 
       .song-picture-subtitle {
         padding-right: 60px;
+      }
+
+      .song-picture-artist {
+        animation: fadeInDelayed 0.8s;
+        display: inline;
       }
     }
   }
@@ -162,6 +172,7 @@
   }
 
   .song-picture-container {
+    animation: fadeIn 0.8s;
     position: relative;
     aspect-ratio: 1 / 1;
     width: 50%;
@@ -171,4 +182,15 @@
     margin-left: 20px;
     font-size: larger;
   }
+}
+
+@keyframes fadeInDelayed {
+  0% { opacity: 0; }
+  30% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

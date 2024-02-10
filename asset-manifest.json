@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/music-app/static/css/main.e846623f.css",
-    "main.js": "/music-app/static/js/main.14c6dbff.js",
+    "main.js": "/music-app/static/js/main.5c6b257e.js",
     "static/media/puberty-2.jpg": "/music-app/static/media/puberty-2.23481bd706c7ebca6231.jpg",
     "static/media/ceremonials.png": "/music-app/static/media/ceremonials.df116aa43f4b4c3dc4d2.png",
     "static/media/lungs.jpg": "/music-app/static/media/lungs.a02f11342c3d1f250090.jpg",
@@ -11,10 +11,10 @@
     "static/media/the-land-is-inhospitable.png": "/music-app/static/media/the-land-is-inhospitable.4ef8437755f7256d7fef.png",
     "index.html": "/music-app/index.html",
     "main.e846623f.css.map": "/music-app/static/css/main.e846623f.css.map",
-    "main.14c6dbff.js.map": "/music-app/static/js/main.14c6dbff.js.map"
+    "main.5c6b257e.js.map": "/music-app/static/js/main.5c6b257e.js.map"
   },
   "entrypoints": [
     "static/css/main.e846623f.css",
-    "static/js/main.14c6dbff.js"
+    "static/js/main.5c6b257e.js"
   ]
 }
